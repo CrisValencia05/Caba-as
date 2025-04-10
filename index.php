@@ -5,7 +5,8 @@ include('db.php');
 <html lang="en">
 
 <head>
-	<title>Kilber Marcano</title>
+	<title>New Dawn-Glamping</title>
+	<link rel="icon" tipe="imagen/png" href="..."
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -69,19 +70,20 @@ include('db.php');
 						<span class="icon-bar"></span>
 					</button>
 					<h1><a class="navbar-brand" href="index.php"> New <span>Dawn</span>
-							<p class="logo_w3l_agile_caption">Tu resort de ensueño</p>
+							<p class="logo_w3l_agile_caption">GLAMPING</p>
 						</a></h1>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--iris">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="index.html" class="menu__link">Casa</a></li>
 							<li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
-							<li class="menu__item"><a href="#team" class="menu__link scroll">Equipo</a></li>
 							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Galería</a></li>
-							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Habitaciones</a></li>
+							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Cabañas</a></li>
+							<li class="menu__item"><a href="#reserv" class="menu__link scroll">reservas</a></li>
 							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contáctenos</a></li>
+							<li><a href="login.php">ingregar</a></li>
+
 						</ul>
 					</nav>
 				</div>
@@ -723,45 +725,64 @@ include('db.php');
 		<div class="container">
 			<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile2" data-aos="flip-left">
 				<div class="contact-agileits">
-					<h4>Contáctenos
+					<h4>Registrate
 					</h4>
-					<p class="contact-agile2">Inscribíte a nuestros boletines
+					<p class="contact-agile2">registrate para estar al tanto de todo
 					</p>
-					<form method="post" name="sentMessage" id="contactForm">
-						<div class="control-group form-group">
+					<form action="guardar_cliente.php" method="POST">
+  <!-- Primer Nombre -->
+  <div class="form-group">
+    <label for="nombre1">Primer Nombre:</label>
+    <input type="text" class="form-control" name="nombre1" id="nombre1" placeholder="Ingresa tu primer nombre" required>
+  </div>
 
-							<label class="contact-p1">Nombre completo
-								:</label>
-							<input type="text" class="form-control" name="name" id="name" required>
-							<p class="help-block"></p>
+  <!-- Segundo Nombre (opcional) -->
+  <div class="form-group">
+    <label for="nombre2">Segundo Nombre:</label>
+    <input type="text" class="form-control" name="nombre2" id="nombre2" placeholder="Ingresa tu segundo nombre (opcional)">
+  </div>
 
-						</div>
-						<div class="control-group form-group">
+  <!-- Primer Apellido -->
+  <div class="form-group">
+    <label for="apellido1">Primer Apellido:</label>
+    <input type="text" class="form-control" name="apellido1" id="apellido1" placeholder="Ingresa tu primer apellido" required>
+  </div>
 
-							<label class="contact-p1">Número de teléfono
-								:</label>
-							<input type="tel" class="form-control" name="phone" id="phone" required>
-							<p class="help-block"></p>
+  <!-- Segundo Apellido (opcional) -->
+  <div class="form-group">
+    <label for="apellido2">Segundo Apellido:</label>
+    <input type="text" class="form-control" name="apellido2" id="apellido2" placeholder="Ingresa tu segundo apellido (opcional)">
+  </div>
 
-						</div>
-						<div class="control-group form-group">
+  <!-- Correo Electrónico -->
+  <div class="form-group">
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" class="form-control" name="email" id="email" placeholder="Ingresa tu correo" required>
+  </div>
 
-							<label class="contact-p1">Dirección de correo electrónico:</label>
-							<input type="email" class="form-control" name="email" id="email" required>
-							<p class="help-block"></p>
+  <!-- Contraseña -->
+  <div class="form-group">
+    <label for="password">Contraseña:</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa tu contraseña" required>
+  </div>
 
-						</div>
+  <!-- Teléfono -->
+  <div class="form-group">
+    <label for="telefono">Teléfono:</label>
+    <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingresa tu número de teléfono" required>
+  </div>
 
-
-						<input type="submit" name="sub" value="Enviar" class="btn btn-primary">
-					</form>
+  <!-- Botón de envío -->
+  <input type="submit" class="btn btn-primary" value="Registrar">
+</form>
 					<?php
 					if (isset($_POST['sub'])) {
 						$name = $_POST['name'];
 						$phone = $_POST['phone'];
 						$email = $_POST['email'];
 						$approval = "Not Allowed";
-						$sql = "INSERT INTO `contact`(`fullname`, `phoneno`, `email`,`cdate`,`approval`) VALUES ('$name','$phone','$email',now(),'$approval')";
+						$sql = "INSERT INTO `clientes`(`nombre1`, `nombre2`, `apellido1`,`apellido2`,`email`,`password`,`telefono`) 
+						VALUES ('$nombre1','$nombre2','$apellido1','$apellido2','$email','$password','$telefono')";
 
 
 						if (mysqli_query($con, $sql))
