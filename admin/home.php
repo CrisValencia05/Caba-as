@@ -11,7 +11,7 @@ if(!isset($_SESSION["user"]))
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administrator	</title>
+    <title>Administrador</title>
     <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -73,7 +73,7 @@ if(!isset($_SESSION["user"]))
 </a>
                     </li>
 					<li>
-                        <a href="roombook.php"><i class="fa fa-bar-chart-o"></i> Reserva de habitacion
+                        <a href="reservation.php"><i class="fa fa-bar-chart-o"></i> Reserva de habitacion
 </a>
                     </li>
                     <li>
@@ -117,8 +117,8 @@ if(!isset($_SESSION["user"]))
                 <!-- /. ROW  -->
 				<?php
 						include ('db.php');
-						$sql = "select * from roombook";
-						$re = mysqli_query($con,$sql);
+						$sql = "select * from reservas";
+						$re = mysqli_query($conn,$sql);
 						$c =0;
 						while($row=mysqli_fetch_array($re) )
 						{
@@ -186,8 +186,8 @@ if(!isset($_SESSION["user"]))
                                     <tbody>
                                         
 									<?php
-									$tsql = "select * from roombook";
-									$tre = mysqli_query($con,$tsql);
+									$tsql = "select * from reservas";
+									$tre = mysqli_query($conn,$tsql);
 									while($trow=mysqli_fetch_array($tre) )
 									{	
 										$co =$trow['stat']; 
@@ -205,7 +205,7 @@ if(!isset($_SESSION["user"]))
 												<th>".$trow['cout']."</th>
 												<th>".$trow['stat']."</th>
 												
-												<th><a href='roombook.php?rid=".$trow['id']." ' class='btn btn-primary'>Action</a></th>
+												<th><a href='reservas.php?rid=".$trow['id']." ' class='btn btn-primary'>Action</a></th>
 												</tr>";
 										}	
 									
@@ -224,8 +224,8 @@ if(!isset($_SESSION["user"]))
                                 </div>
 								<?php
 								
-								$rsql = "SELECT * FROM `roombook`";
-								$rre = mysqli_query($con,$rsql);
+								$rsql = "SELECT * FROM `reservas`";
+								$rre = mysqli_query($conn,$rsql);
 								$r =0;
 								while($row=mysqli_fetch_array($rre) )
 								{		
@@ -257,8 +257,8 @@ if(!isset($_SESSION["user"]))
                                     <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
                                         <div class="panel-body">
 										<?php
-										$msql = "SELECT * FROM `roombook`";
-										$mre = mysqli_query($con,$msql);
+										$msql = "SELECT * FROM `reservas`";
+										$mre = mysqli_query($conn,$msql);
 										
 										while($mrow=mysqli_fetch_array($mre) )
 										{		
@@ -299,15 +299,15 @@ if(!isset($_SESSION["user"]))
                                 </div>
                                 <?php
 								
-								$fsql = "SELECT * FROM `contact`";
-								$fre = mysqli_query($con,$fsql);
+								/*$fsql = "SELECT * FROM `contact`";
+								$fre = mysqli_query($conn,$fsql);
 								$f =0;
 								while($row=mysqli_fetch_array($fre) )
 								{
 										$f = $f + 1;
-								
+                                        
 								}
-						
+						*/
 								?>
                                 <div class="panel panel-danger">
                                     <div class="panel-heading">
@@ -339,7 +339,7 @@ if(!isset($_SESSION["user"]))
                                         
 									<?php
 									$csql = "select * from contact";
-									$cre = mysqli_query($con,$csql);
+									$cre = mysqli_query($conn,$csql);
 									while($crow=mysqli_fetch_array($cre) )
 									{	
 										

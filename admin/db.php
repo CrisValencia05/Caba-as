@@ -2,12 +2,13 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "cabañas";
+$database = "glamping";
 
-$conn = mysqli_connect($host, $user, $password, $database);
+// Forma correcta usando programación orientada a objetos
+$conn = new mysqli($host, $user, $password, $database);
 
 // Verificar conexión
-if (!$conn) {
-    die("Conexión fallida: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 ?>

@@ -54,7 +54,7 @@ INFORMACION PERSONAL
                         <div class="panel-body">
 						<form name="form" method="post">
                             <div class="form-group">
-                                            <label>Titulo*</label>
+                                            <label>title</title></label>
                                             <select name="title" class="form-control" required >
 												<option value selected ></option>
                                                 <option value="Dr.">Dr.</option>
@@ -209,7 +209,7 @@ INFORMACION PERSONAL
 						<input type="submit" name="submit" class="btn btn-primary">
 						<?php
 							if(isset($_POST['submit']))
-							{
+							
 							$code1=$_POST['code1'];
 							$code=$_POST['code']; 
 							if($code1!="$code")
@@ -217,37 +217,52 @@ INFORMACION PERSONAL
 							$msg="Invalide code"; 
 							}
 							else
-							{
+                    
+                            // Conexión a la base de datos
+                            $conn = mysqli_connect("localhost", "root", "", "glamping");
+                            if (!$conn) {
+                                die("Error de conexión: " . mysqli_connect_error());
+                            }
+                            
+                            // Sanear las entradas de datos para prevenir inyección SQL
+                            $title = mysqli_real_escape_string($conn, $_POST['title']);
+                            $fname = mysqli_real_escape_string($conn, $_POST['fname']);
+                            $lname = mysqli_real_escape_string($conn, $_POST['lname']);
+                            $email = mysqli_real_escape_string($conn, $_POST['email']);
+                            $nation = mysqli_real_escape_string($conn, $_POST['nation']);
+                            $country = mysqli_real_escape_string($conn, $_POST['country']);
+                            $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+                            $troom = mysqli_real_escape_string($conn, $_POST['troom']);
+                            $bed = mysqli_real_escape_string($conn, $_POST['bed']);
+                            $nroom = mysqli_real_escape_string($conn, $_POST['nroom']);
+                            $meal = mysqli_real_escape_string($conn, $_POST['meal']);
+                            $cin = mysqli_real_escape_string($conn, $_POST['cin']);
+                            $cout = mysqli_real_escape_string($conn, $_POST['cout']);
+                            
+                            // Verificar si el usuario ya existe en la base de datos
+                            $check = "SELECT * FROM reservas WHERE email = '$email'";
+                            $rs = mysqli_query($conn, $check);
+                            if (mysqli_num_rows($rs) > 0) {
+                                echo "<script type='text/javascript'> alert('El usuario ya existe')</script>";
+                            } else {
+                                // Si el correo no está registrado, insertamos la nueva reserva
+                                $new = "Not Conform";
+                               $newUser = "INSERT INTO `reservas`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`, `stat`, `nodays`) 
+           VALUES ('$title', '$fname', '$lname', '$email', '$nation', '$country', '$phone', '$troom', '$bed', '$nroom', '$meal', '$cin', '$cout', '$new', DATEDIFF('$cout', '$cin'))";
+
+                                
+                                if (mysqli_query($conn, $newUser)) {
+                                    echo "<script type='text/javascript'> alert('Su solicitud de reserva ha sido enviada')</script>";
+                                } else {
+                                    echo "<script type='text/javascript'> alert('Error al agregar usuario en la base de datos')</script>";
+                                }
+                            }
+                            
+                            // Mensaje de éxito
+                            $msg = "Tu código es correcto";
+                            ?>
+                            
 							
-									$con=mysqli_connect("localhost","root","","hotel");
-									$check="SELECT * FROM roombook WHERE email = '$_POST[email]'";
-									$rs = mysqli_query($con,$check);
-									$data = mysqli_fetch_array($rs, MYSQLI_NUM);
-									if($data[0] > 1) {
-										echo "<script type='text/javascript'> alert('El usuario ya existe')</script>";
-										
-									}
-
-									else
-									{
-										$new ="Not Conform";
-										$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
-										if (mysqli_query($con,$newUser))
-										{
-											echo "<script type='text/javascript'> alert('Su solicitud de reserva ha sido enviadat')</script>";
-											
-										}
-										else
-										{
-											echo "<script type='text/javascript'> alert('Error al agregar usuario en la base de datos')</script>";
-											
-										}
-									}
-
-							$msg="Tu código es correcto
-";
-							}
-							}
 							?>
 						</form>
 							

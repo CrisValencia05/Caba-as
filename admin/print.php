@@ -171,7 +171,7 @@ tr:hover .cut { opacity: 1; }
 	
 	
 	$sql ="select * from payment where id = '$pid' ";
-	$re = mysqli_query($con,$sql);
+	$re = mysqli_query($conn,$sql);
 	while($row=mysqli_fetch_array($re))
 	{
 		$id = $row['id'];
@@ -340,11 +340,11 @@ tr:hover .cut { opacity: 1; }
 $free="Free";
 $nul = null;
 $rpsql = "UPDATE `room` SET `place`='$free',`cusid`='$nul' where `cusid`='$id'";
-if(mysqli_query($con,$rpsql))
+if(mysqli_query($conn,$rpsql))
 {
 	$delsql= "DELETE FROM `roombook` WHERE id='$id' ";
 	
-	if(mysqli_query($con,$delsql))
+	if(mysqli_query($conn,$delsql))
 	{
 	
 	}

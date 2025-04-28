@@ -90,7 +90,7 @@ ob_start();
             <?php
 						include ('db.php');
 						$sql = "SELECT * FROM `login`";
-						$re = mysqli_query($con,$sql)
+						$re = mysqli_query($conn,$sql)
 				?>
                 
             <div class="row">
@@ -203,7 +203,7 @@ ob_start();
 							$newps = $_POST['newps'];
 							
 							$newsql ="Insert into login (usname,pass) values ('$newus','$newps')";
-							if(mysqli_query($con,$newsql))
+							if(mysqli_query($conn,$newsql))
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("User name and password Added") </script>';
 							
@@ -259,7 +259,7 @@ ob_start();
 					$passwr = $_POST['pasd'];
 					
 					$upsql = "UPDATE `login` SET `usname`='$usname',`pass`='$passwr' WHERE id = '$id'";
-					if(mysqli_query($con,$upsql))
+					if(mysqli_query($conn,$upsql))
 					{
 					echo' <script language="javascript" type="text/javascript"> alert("User name and password update") </script>';
 					

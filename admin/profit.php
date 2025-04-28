@@ -163,7 +163,7 @@ if(!isset($_SESSION["user"]))
 									<?php
 										
 										$sql="select * from payment";
-										$re = mysqli_query($con,$sql);
+										$re = mysqli_query($conn,$sql);
 										while($row = mysqli_fetch_array($re))
 										{
 										

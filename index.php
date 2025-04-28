@@ -785,7 +785,7 @@ include('db.php');
 						VALUES ('$nombre1','$nombre2','$apellido1','$apellido2','$email','$password','$telefono')";
 
 
-						if (mysqli_query($con, $sql))
+						if (mysqli_query($conn, $sql))
 							echo "OK";
 					}
 					?>
