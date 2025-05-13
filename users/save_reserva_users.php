@@ -28,6 +28,10 @@ if (isset($_SESSION['email'])) {
 
 $type = $_POST['type'] ?? null;
 $fecha_solicitud = date('Y-m-d');
+$fecha_llegada = $_POST['fecha_llegada'] ?? null;
+$fecha_salida = $_POST['fecha_salida'] ?? null;
+$servicios_extra = $_POST['servicios_extra'] ?? '';
+
 
 // Validación básica
 if (!$type) {
@@ -47,9 +51,9 @@ if ($result->num_rows > 0) {
     $cabana_id = $cabana['id'];
 
     // Insertar la reserva
-    $insert = "INSERT INTO reservas (cliente_id, email, cabana_id, fecha_solicitud) VALUES (?, ?, ?, ?)";
+    $insert = "INSERT INTO reservas (cliente_id, email, cabana_id, fecha_solicitud, fecha_llegada, fecha_salida, servicios_extra) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($insert);
-    $stmt->bind_param("isis", $cliente_id, $email, $cabana_id, $fecha_solicitud);
+    $stmt->bind_param("isissss", $cliente_id, $email, $cabana_id, $fecha_solicitud, $fecha_llegada, $fecha_salida, $servicios_extra);
 
     if ($stmt->execute()) {
         echo "Reserva guardada correctamente.";

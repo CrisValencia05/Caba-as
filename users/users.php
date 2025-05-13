@@ -2,9 +2,11 @@
 <html>
 <head>
     <title>Registro</title>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <h2>Registro</h2>
+    <div class="container">
+        <h2>Registro</h2>
     <form action="save_users.php" method="post">
         <input type="text" name="nombre1" placeholder="Nombre" required><br><br>
         <input type="text" name="nombre2" placeholder="Segundo Nombre" required><br><br>
@@ -16,5 +18,6 @@
         <input type="submit" value="Registrarse">
     </form>
     <p>¿Ya tienes cuenta? <a href="login_users.php">Inicia sesión</a></p>
+    </div>
 </body>
 </html>

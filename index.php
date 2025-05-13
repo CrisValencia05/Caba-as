@@ -80,7 +80,7 @@ include('db.php');
 							<li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
 							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Galería</a></li>
 							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Cabañas</a></li>
-							<li><a href="users/users.php">Usuarios</a></li>
+							<li><a href="users/login_users.php">Usuarios</a></li>
 							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contáctenos</a></li>
 							<li><a href="login.php">admin</a></li>
 
