@@ -10,7 +10,7 @@ ob_start();
 <?php
 include('db.php');
 $rsql ="select id from room";
-$rre=mysqli_query($con,$rsql);
+$rre=mysqli_query($conn,$rsql);
 
 ?>
 							 
@@ -155,7 +155,7 @@ $rre=mysqli_query($con,$rsql);
 								
 								
 								$sql ="DELETE FROM `room` WHERE id = '$did'" ;
-								if(mysqli_query($con,$sql))
+								if(mysqli_query($conn,$sql))
 								{
 								 echo '<script type="text/javascript">alert("Delete the Room") </script>' ;
 										
@@ -175,7 +175,7 @@ $rre=mysqli_query($con,$rsql);
            <?php
 						include ('db.php');
 						$sql = "select * from room";
-						$re = mysqli_query($con,$sql)
+						$re = mysqli_query($conn,$sql)
 				?>
                 <div class="row">
 				

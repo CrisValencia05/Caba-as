@@ -19,7 +19,7 @@ if(!isset($_SESSION["user"]))
 				
 				
 				$sql ="Select * from roombook where id = '$id'";
-				$re = mysqli_query($con,$sql);
+				$re = mysqli_query($conn,$sql);
 				while($row=mysqli_fetch_array($re))
 				{
 					$title = $row['Title'];
@@ -270,7 +270,7 @@ Confirmación de reserva
 					
 					<?php
 						$rsql ="select * from room";
-						$rre= mysqli_query($con,$rsql);
+						$rre= mysqli_query($conn,$rsql);
 						$r =0 ;
 						$sc =0;
 						$gh = 0;
@@ -305,7 +305,7 @@ Confirmación de reserva
 						
 						<?php
 						$csql ="select * from payment";
-						$cre= mysqli_query($con,$csql);
+						$cre= mysqli_query($conn,$csql);
 						$cr =0 ;
 						$csc =0;
 						$cgh = 0;
@@ -492,7 +492,7 @@ Confirmación de reserva
 										echo "<script type='text/javascript'> alert('Sorry! Not Available Deluxe Room')</script>";
 										}
 										
-										else if( mysqli_query($con,$urb))
+										else if( mysqli_query($conn,$urb))
 											{	
 												//echo "<script type='text/javascript'> alert('Guest Room booking is conform')</script>";
 												//echo "<script type='text/javascript'> window.location='home.php'</script>";
@@ -566,10 +566,10 @@ Confirmación de reserva
 															//echo "<script type='text/javascript'> alert('$count_date')</script>";
 														$psql = "INSERT INTO `payment`(`id`, `title`, `fname`, `lname`, `troom`, `tbed`, `nroom`, `cin`, `cout`, `ttot`,`meal`, `mepr`, `btot`,`fintot`,`noofdays`) VALUES ('$id','$title','$fname','$lname','$troom','$bed','$nroom','$cin','$cout','$ttot','$meal','$mepr','$btot','$fintot','$days')";
 														
-														if(mysqli_query($con,$psql))
+														if(mysqli_query($conn,$psql))
 														{	$notfree="NotFree";
 															$rpsql = "UPDATE `room` SET `place`='$notfree',`cusid`='$id' where bedding ='$bed' and type='$troom' ";
-															if(mysqli_query($con,$rpsql))
+															if(mysqli_query($conn,$rpsql))
 															{
 															echo "<script type='text/javascript'> alert('Booking Conform')</script>";
 															echo "<script type='text/javascript'> window.location='roombook.php'</script>";

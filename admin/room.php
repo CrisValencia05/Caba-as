@@ -151,7 +151,7 @@ if(!isset($_SESSION["user"]))
 										$place = 'Free';
 										
 										$check="SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'";
-										$rs = mysqli_query($con,$check);
+										$rs = mysqli_query($conn,$check);
 										$data = mysqli_fetch_array($rs, MYSQLI_NUM);
 										if($data[0] > 1) {
 											echo "<script type='text/javascript'> alert('Room Already in Exists')</script>";
@@ -163,7 +163,7 @@ if(!isset($_SESSION["user"]))
 							 
 										
 										$sql ="INSERT INTO `room`( `type`, `bedding`,`place`) VALUES ('$room','$bed','$place')" ;
-										if(mysqli_query($con,$sql))
+										if(mysqli_query($conn,$sql))
 										{
 										 echo '<script>alert("New Room Added") </script>' ;
 										}else {
@@ -191,7 +191,7 @@ if(!isset($_SESSION["user"]))
                     <div class="panel panel-default">
                         <?php
 						$sql = "select * from room limit 0,10";
-						$re = mysqli_query($con,$sql)
+						$re = mysqli_query($conn,$sql)
 						?>
                         <div class="panel-body">
                             <div class="table-responsive">

@@ -108,7 +108,7 @@ if(!isset($_SESSION["user"]))
             <?php
 						include ('db.php');
 						$sql = "select * from room";
-						$re = mysqli_query($con,$sql)
+						$re = mysqli_query($conn,$sql)
 				?>
                 <div class="row">
 				

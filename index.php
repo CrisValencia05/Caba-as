@@ -80,9 +80,9 @@ include('db.php');
 							<li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
 							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Galería</a></li>
 							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Cabañas</a></li>
-							<li class="menu__item"><a href="#reserv" class="menu__link scroll">reservas</a></li>
+							<li><a href="users/login_users.php">Usuarios</a></li>
 							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contáctenos</a></li>
-							<li><a href="login.php">ingregar</a></li>
+							<li><a href="login.php">admin</a></li>
 
 						</ul>
 					</nav>
@@ -785,7 +785,7 @@ include('db.php');
 						VALUES ('$nombre1','$nombre2','$apellido1','$apellido2','$email','$password','$telefono')";
 
 
-						if (mysqli_query($con, $sql))
+						if (mysqli_query($conn, $sql))
 							echo "OK";
 					}
 					?>

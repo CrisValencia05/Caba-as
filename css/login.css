@@ -1,0 +1,60 @@
+body {
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    align-items: center;     /* centra verticalmente */
+    background-color: #f0f0f0; /* color de fondo */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+        background-color: white; /* fondo del formulario */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    form label {
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+        
+    }
+
+    form input, form select, form textarea, button {
+        width: 100%;
+        padding: 6px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }

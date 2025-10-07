@@ -169,7 +169,7 @@ tr:hover .cut { opacity: 1; }
 	
 	
 	$sql ="select * from roombook where id = '$pid' ";
-	$re = mysqli_query($con,$sql);
+	$re = mysqli_query($conn,$sql);
 	while($row=mysqli_fetch_array($re))
 	{
 		$id = $row['id'];

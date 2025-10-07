@@ -5,18 +5,21 @@ include("admin/db.php"); // Conexión a la base de datos
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Consulta para verificar si el cliente existe
-$query = "SELECT * FROM clientes WHERE email = '$email' AND password = '$password'";
+// Consulta para verificar si el administrador existe
+$query = "SELECT * FROM empleados WHERE email = '$email' AND contraseña = '$password'";
 $resultado = mysqli_query($conn, $query);
 
 // Verificamos si hay coincidencias
 if(mysqli_num_rows($resultado) == 1){
-    // El cliente existe
+    // El administrador existe
     session_start();
-    $_SESSION['email'] = $email;
-    header("Location: bienvenida.php"); // redirige a una página de bienvenida
+    $admin = mysqli_fetch_assoc($resultado);
+    $_SESSION['email'] = $admin['email'];
+    $_SESSION['user'] = $admin['nombre']; // Guardamos el nombre
+    header("Location: admin/home.php"); // Redirige al panel de administración
+    exit();
 } else {
-    // El cliente no existe
+    // El administrador no existe
     echo "<script>
             alert('Correo o contraseña incorrectos.');
             window.location.href = 'login.php';

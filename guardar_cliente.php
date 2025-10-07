@@ -15,9 +15,9 @@ $telefono  = $_POST['telefono'];
 $sql = "INSERT INTO clientes (nombre1, nombre2, apellido1, apellido2, email, password, telefono)
         VALUES ('$nombre1', '$nombre2', '$apellido1', '$apellido2', '$email', '$password', '$telefono')";
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($con, $sql)) {
     echo "Registro exitoso.";
 } else {
-    echo "Error al registrar: " . mysqli_error($conn);
+    echo "Error al registrar: " . mysqli_error($con);
 }
 ?>
