@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","root","","glamping_db") or die(mysqli_error($con));
+$conn = mysqli_connect("localhost","root","","glamping_db") or die(mysqli_error($conn));
 
 // Verificar si la conexión fue exitosa
 if (mysqli_connect_errno()) {
