@@ -80,7 +80,7 @@ include('db.php');
 							<li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
 							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Galería</a></li>
 							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Cabañas</a></li>
-							<li><a href="users/login_users.php">Usuarios</a></li>
+							<li><a href="users/login.php">Usuarios</a></li>
 							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contáctenos</a></li>
 							<li><a href="login.php">admin</a></li>
 
@@ -529,7 +529,7 @@ include('db.php');
 							</div>
 							<div class="price-selet">
 								<h3><span>$</span>320</h3>
-								<a href="admin/reservation.php"> Reservar ahora
+                                    <a href="users/reservar.php">Reservar ahora</a>
 								</a>
 							</div>
 						</div>
@@ -554,7 +554,7 @@ include('db.php');
 							</div>
 							<div class="price-selet">
 								<h3><span>$</span>220</h3>
-								<a href="admin/reservation.php">Reservar ahora
+                                  <a href="users/reservar.php">Reservar ahora</a>
 								</a>
 							</div>
 						</div>
@@ -578,7 +578,7 @@ include('db.php');
 							</div>
 							<div class="price-selet">
 								<h3><span>$</span>180</h3>
-								<a href="admin/reservation.php">Reservar ahora</a>
+                                  <a href="users/reservar.php">Reservar ahora</a>
 							</div>
 						</div>
 					</div>
@@ -601,7 +601,7 @@ include('db.php');
 							</div>
 							<div class="price-selet">
 								<h3><span>$</span> 150</h3>
-								<a href="admin/reservation.php">Reservar ahora
+                                  <a href="users/reservar.php">Reservar ahora</a>
 								</a>
 							</div>
 						</div>

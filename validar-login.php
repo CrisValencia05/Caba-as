@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // Consulta para verificar si el administrador existe
-$query = "SELECT * FROM empleados WHERE email = '$email' AND contraseña = '$password'";
+$query = "SELECT * FROM empleado WHERE email = '$email' AND contraseña = '$password'";
 $resultado = mysqli_query($conn, $query);
 
 // Verificamos si hay coincidencias
