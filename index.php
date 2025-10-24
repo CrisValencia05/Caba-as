@@ -5,7 +5,7 @@ include('db.php');
 <html lang="en">
 
 <head>
-	<title>New Dawn-Glamping</title>
+	<title>Masaya San Agustin - Glamping</title>
 	<link rel="icon" tipe="imagen/png" href="..."
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,8 +69,8 @@ include('db.php');
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a class="navbar-brand" href="index.php"> New <span>Dawn</span>
-							<p class="logo_w3l_agile_caption">GLAMPING</p>
+					<h1><a class="navbar-brand" href="index.php"> Masaya <span>Glamping</span>
+							<p class="logo_w3l_agile_caption">SAN AGUSTIN</p>
 						</a></h1>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -103,9 +103,9 @@ include('db.php');
 
 							<div class="container">
 								<div class="agileits-banner-info">
-									<h4>Nuevo Amanecer</h4>
-									<h3>Sabemos lo que amas</h3>
-									<p>Bienvenido a nuestros hoteles
+									<h4>Bienvenido a Masaya</h4>
+									<h3>Vive experiencias únicas </h3>
+									<p>Disfruta de paisajes espectaculares.
 									</p>
 									<div class="agileits_w3layouts_more menu__item">
 										<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">leer más
@@ -119,9 +119,9 @@ include('db.php');
 						<div class="w3layouts-banner-top w3layouts-banner-top1">
 							<div class="container">
 								<div class="agileits-banner-info">
-									<h4>AMANECER</h4>
-									<h3>Quédate con amigos y familias</h3>
-									<p>Ven y disfruta un momento precioso con nosotros</p>
+									<h4>Tu refugio</h4>
+									<h3>Disfruta de momentos inolvidables en Masaya</h3>
+									<p>Reserva ahora</p>
 									<div class="agileits_w3layouts_more menu__item">
 										<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">leer más</a>
 									</div>
@@ -133,9 +133,9 @@ include('db.php');
 						<div class="w3layouts-banner-top w3layouts-banner-top2">
 							<div class="container">
 								<div class="agileits-banner-info">
-									<h4>AMANECER</h4>
-									<h3>¿quiero unas vacaciones lujosas?</h3>
-									<p>Obtenga alojamiento hoy</p>
+									<h4>Vive el lujo</h4>
+									<h3>Momentos que recordarás para siempre</h3>
+									<p>Conoce nuestras cabañas</p>
 									<div class="agileits_w3layouts_more menu__item">
 										<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">leer más</a>
 									</div>
@@ -164,10 +164,10 @@ include('db.php');
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4>Nuevo <span>Amanecer</span></h4>
-					<img src="images/1.jpg" alt=" " class="img-responsive">
+					<h4>Masaya <span>Glamping</span></h4>
+					<img src="images/190576909.jpg" alt=" " class="img-responsive">
 					<h5>Sabemos lo que amas</h5>
-					<p>Ofrecer a los huéspedes vistas únicas y encantadoras desde sus habitaciones con sus comodidades excepcionales, hace que Star Hotel sea uno de los mejores en su tipo. Pruebe nuestro menú de comida, servicios increíbles y un personal amable mientras esté aquí..</p>
+					<p>Ofrecer a los huéspedes vistas únicas y encantadoras desde sus Cabañas con sus comodidades excepcionales, hace que Masaya sea uno de los mejores en su tipo. Pruebe nuestro menú de comida, servicios increíbles y un personal amable mientras esté aquí..</p>
 				</div>
 			</div>
 		</div>
@@ -175,7 +175,7 @@ include('db.php');
 	<!-- //Modal1 -->
 	<div id="availability-agileits">
 		<div class="col-md-12 book-form-left-w3layouts">
-			<a href="admin/reservation.php">
+			<a href="users/login.php">
 				<h2>RESERVA EL MEJOR AMANECER
 				</h2>
 			</a>
@@ -187,7 +187,7 @@ include('db.php');
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="agileits_banner_bottom">
-				<h3><span>Experimenta una buena estadía, disfruta de fantásticas ofertas</span> Encuentra nuestra acogedora bienvenida
+				<h3><span>Cada estancia incluye comodidades excepcionales, un menú delicioso y un servicio amable que hará que tu experiencia sea inolvidable.</span> Encuentra nuestra acogedora bienvenida
 				</h3>
 			</div>
 			<div class="w3ls_banner_bottom_grids">
@@ -230,9 +230,9 @@ include('db.php');
 	<div class="about-wthree" id="about">
 		<div class="container">
 			<div class="ab-w3l-spa">
-				<h3 class="title-w3-agileits title-black-wthree">Acerca de nuestro New Dawn
+				<h3 class="title-w3-agileits title-black-wthree">Acerca de nuestro Masaya Glamping
 				</h3>
-				<p class="about-para-w3ls"> Lorem Ipsum es simplemente un texto simulado de la industria de impresión y composición tipográfica. Laca tempient vestibulum blandit faucibus. Nunc imperdiet, diam nec rhoncus ullamcorper, nisl nulla suscipit ligula, en imperdiet urna
+				<p class="about-para-w3ls"> Masaya San Agustín Glamping es un lugar diseñado para quienes buscan desconectar y disfrutar de la naturaleza sin renunciar al confort. Nuestras cabañas combinan lujo y armonía con el entorno natural.
 				</p>
 				<img src="images/about.jpg" class="img-responsive" alt="Hair Salon">
 				<div class="w3l-slider-img">
@@ -259,11 +259,10 @@ include('db.php');
 						<div class="advantage-block ">
 							<i class="fa fa-credit-card" aria-hidden="true"></i>
 							<h4>Quédate primero, paga después! </h4>
-							<p>Sin embargo, en ciertas circunstancias y el deber o la obligación se producen con frecuencia que los placeres tienen a sus funciones,
-								.</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Habitación decorada, con aire acondicionado
+						
+							<p><i class="fa fa-check" aria-hidden="true"></i>Reserva ahora, paga en tu llegada
 							</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Balcón privado
+							<p><i class="fa fa-check" aria-hidden="true"></i>Actividades al aire libre
 							</p>
 
 						</div>
@@ -273,11 +272,10 @@ include('db.php');
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
 							<h4>Restaurante las 24 horas
 							</h4>
-							<p>Sin embargo, en ciertas circunstancias y el deber o la obligación se producen con frecuencia que los placeres tienen a sus funciones,
-								.</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>24 horas de servicio a la habitación
+							
+							<p><i class="fa fa-check" aria-hidden="true"></i>Gastronomía 24 horas
 							</p>
-							<p><i class="fa fa-check" aria-hidden="true"></i>Servicio de conserjería las 24 horas
+							<p><i class="fa fa-check" aria-hidden="true"></i>Conexión WiFi en todo el lugar
 							</p>
 						</div>
 					</div>
@@ -286,108 +284,9 @@ include('db.php');
 			</div>
 		</div>
 	</div>
+	<br>
+	<br>
 	<!--//sevices-->
-	<!-- team -->
-	<div class="team" id="team">
-		<div class="container">
-			<h3 class="title-w3-agileits title-black-wthree">Conozca a Nuestro Equipo</h3>
-			<div id="horizontalTab">
-				<ul class="resp-tabs-list">
-					<li>
-						<img src="images/teams1.jpg" alt=" " class="img-responsive" />
-					</li>
-					<li>
-						<img src="images/teams2.jpg" alt=" " class="img-responsive" />
-					</li>
-					<li>
-						<img src="images/teams3.jpg" alt=" " class="img-responsive" />
-					</li>
-					<li>
-						<img src="images/teams4.jpg" alt=" " class="img-responsive" />
-					</li>
-				</ul>
-				<div class="resp-tabs-container">
-					<div class="tab1">
-						<div class="col-md-6 team-img-w3-agile">
-						</div>
-						<div class="col-md-6 team-Info-agileits">
-							<h4>tusolutionweb</h4>
-							<span>Gerente
-							</span>
-							<p>Lorem ipsum dolor sit amet, elit adipiscing del consectetur, tempor sed y vitalidad, por lo que el trabajo y dolor, algunas cosas importantes que hacer eiusmod. A través de los años por venir, equipo quis.Lorem
-								.</p>
-							<div class="social-bnr-agileits footer-icons-agileinfo">
-								<ul class="social-icons3">
-									<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-									<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-									<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-									<li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="tab2">
-						<div class="col-md-6 team-img-w3-agile">
-						</div>
-						<div class="col-md-6 team-Info-agileits">
-							<h4>Sarah Connor</h4>
-							<span>Recepcionista
-							</span>
-							<p>Estamos para ser de tus vaciones las mej
-								or porque savemos que te esuferzas trabajando.te ofrecemos lo mejor .</p>
-							<div class="social-bnr-agileits footer-icons-agileinfo">
-								<ul class="social-icons3">
-									<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-									<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-									<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-									<li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="tab3">
-						<div class="col-md-6 team-img-w3-agile">
-						</div>
-						<div class="col-md-6 team-Info-agileits">
-							<h4>Ivan Simpson</h4>
-							<span>Manager</span>
-							<p>Que eresperas para disfrutar los momentos mas inolvidables de tu vida.</p>
-							<div class="social-bnr-agileits footer-icons-agileinfo">
-								<ul class="social-icons3">
-									<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-									<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-									<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-									<li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="tab4">
-						<div class="col-md-6 team-img-w3-agile">
-						</div>
-						<div class="col-md-6 team-Info-agileits">
-							<h4>Marc Gutierrez</h4>
-							<span>Recepcionista</span>
-							<p>Porque siempre pensamos primero en nuestros clientes mesclamos comodidad con un precio economico.</p>
-							<div class="social-bnr-agileits footer-icons-agileinfo">
-								<ul class="social-icons3">
-									<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-									<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-									<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-									<li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- //team -->
 	<!-- Gallery -->
 	<section class="portfolio-w3ls" id="gallery">
 		<h3 class="title-w3-agileits title-black-wthree">Nuestra galería

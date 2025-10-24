@@ -10,11 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo           = mysqli_real_escape_string($conn, $_POST['correo']);
     $celular          = mysqli_real_escape_string($conn, $_POST['celular']);
     $direccion        = mysqli_real_escape_string($conn, $_POST['direccion']);
-    $contraseña       = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // Encriptar contraseña
+    $contrasena       = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // Encriptar contraseña
 
-    // Insertar datos en la tabla usuarios
-    $sql = "INSERT INTO usuarios (nombre, segundo_nombre, apellido, segundo_apellido, celular, direccion, correo, contraseña, fecha_registro)
-            VALUES ('$nombre', '$segundo_nombre', '$apellido', '$segundo_apellido', '$celular', '$direccion', '$correo', '$contraseña', NOW())";
+    // Insertar datos en la tabla Usuarios
+    $sql = "INSERT INTO Usuarios (nombre, segundo_nombre, apellido, segundo_apellido, celular, direccion, correo, contrasena, fecha_registro)
+            VALUES ('$nombre', '$segundo_nombre', '$apellido', '$segundo_apellido', '$celular', '$direccion', '$correo', '$contrasena', NOW())";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: login.php");

@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Buscar el usuario por correo
-    $stmt = $conn->prepare("SELECT cod_cliente, nombre, contraseña FROM usuarios WHERE correo = ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT cod_cliente, nombre, contrasena FROM Usuarios WHERE correo = ? LIMIT 1");
     $stmt->bind_param("s", $correo);
     $stmt->execute();
     $res = $stmt->get_result();
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $res->fetch_assoc();
 
         // Verificar contraseña (usa password_hash en el registro)
-        if (password_verify($clave, $user['contraseña'])) {
+        if (password_verify($clave, $user['contrasena'])) {
             // Crear sesión del usuario
             $_SESSION['cod_cliente'] = $user['cod_cliente'];
             $_SESSION['nombre'] = $user['nombre'];

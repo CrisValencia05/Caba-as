@@ -1,27 +1,35 @@
 <?php
-include("admin/db.php"); // Conexión a la base de datos
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
 
-// Capturamos los datos del formulario
-$email = $_POST['email'];
-$password = $_POST['password'];
+include("db.php"); // Conexión a la base de datos
 
-// Consulta para verificar si el administrador existe
-$query = "SELECT * FROM empleado WHERE email = '$email' AND contraseña = '$password'";
+$correo = $_POST['correo'] ?? '';
+$contrasena = $_POST['contrasena'] ?? '';
+
+// Depuración rápida
+if(empty($correo) || empty($contrasena)){
+    die("Debes ingresar correo y contraseña");
+}
+
+$query = "SELECT * FROM Empleado WHERE correo = '$correo' AND contrasena = '$contrasena'";
 $resultado = mysqli_query($conn, $query);
 
-// Verificamos si hay coincidencias
+// Verificar errores SQL
+if (!$resultado) {
+    die("Error en la consulta: " . mysqli_error($conn));
+}
+
 if(mysqli_num_rows($resultado) == 1){
-    // El administrador existe
-    session_start();
     $admin = mysqli_fetch_assoc($resultado);
-    $_SESSION['email'] = $admin['email'];
-    $_SESSION['user'] = $admin['nombre']; // Guardamos el nombre
-    header("Location: admin/home.php"); // Redirige al panel de administración
+    $_SESSION['correo'] = $admin['correo'];
+    $_SESSION['user'] = $admin['nombre'];
+    header("Location: admin/home.php");
     exit();
 } else {
-    // El administrador no existe
     echo "<script>
-            alert('Correo o contraseña incorrectos.');
+            alert('Credencial o contraseña incorrectos.');
             window.location.href = 'login.php';
           </script>";
 }

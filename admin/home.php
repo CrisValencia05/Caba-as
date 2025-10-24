@@ -4,6 +4,8 @@ if(!isset($_SESSION["user"]))
 {
  header("location:index.php");
 }
+
+include ('../db.php');
 ?> 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,22 +41,12 @@ if(!isset($_SESSION["user"]))
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="usersetting.php"><i class="fa fa-user fa-fw"></i> Perfil del usuario
-</a>
-                        </li>
-                        <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Configuraciones
-</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión
-</a>
-                        </li>
-                    </ul>
+    <li>
+        <a href="../index.php" class="btn btn-danger" style="margin-top:8px; color:white;">
+            <i class="fa fa-sign-out fa-fw"></i> Cerrar sesión
+        </a>
+    </li>
+    </ul>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
@@ -66,33 +58,19 @@ if(!isset($_SESSION["user"]))
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="home.php"><i class="fa fa-dashboard"></i> Estado</a>
+                        <a class="active-menu" href="home.php"><i class="fa fa-dashboard"></i> Reservas</a>
                     </li>
                     <li>
-                        <a href="messages.php"><i class="fa fa-desktop"></i> Mensajes Masivos
+                        <a href="vista_usuarios.php"><i class="fa fa-desktop"></i> Usuarios
 </a>
+                    </li>
+                    <li>
+                        <a href="vista_empleados.php"><i class="fa fa-qrcode"></i> Empleados</a>
                     </li>
 					<li>
-                        <a href="reservation.php"><i class="fa fa-bar-chart-o"></i> Reserva de habitacion
-</a>
-                    </li>
-                    <li>
-                        <a href="payment.php"><i class="fa fa-qrcode"></i> Pagos</a>
-                    </li>
-                    <li>
-                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Lucro</a>
+                        <a  href="room.php"><i class="fa fa-plus-circle"></i> Cabañas</a>
                     </li>
                     
-                    <li>
-                        <a class="home-menu" href="settings.php"><i class="fa fa-dashboard"></i>Estado de la habitación</a>
-                    </li>
-					<li>
-                        <a  href="room.php"><i class="fa fa-plus-circle"></i>Agregar habitación</a>
-                    </li>
-                    <li>
-                        <a   href="roomdel.php"><i class="fa fa-pencil-square-o"></i> Eliminar habitación</a>
-                    </li>
-                   
 
 
                     
@@ -101,322 +79,116 @@ if(!isset($_SESSION["user"]))
             </div>
 
         </nav>
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
-            <div id="page-inner">
+     
 
+<div id="page-wrapper">
+  <div id="page-inner">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            estado <small>Reserva de habitacion
- </small>
-                        </h1>
-                    </div>
-                </div>
-                <!-- /. ROW  -->
-				<?php
-						include ('db.php');
-						$sql = "select * from reservas";
-						$re = mysqli_query($conn,$sql);
-						$c =0;
-						while($row=mysqli_fetch_array($re) )
-						{
-								$new = $row['stat'];
-								$cin = $row['cin'];
-								$id = $row['id'];
-								if($new=="Not Conform")
-								{
-									$c = $c + 1;
-									
-								
-								}
-						
-						}
-						
-									
-									
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="page-header">
+          Reservaciones <small>Lista de todas las reservas</small>
+        </h1>
+      </div>
+    </div>
 
-						
-				?>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Listado de Reservas</h4>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nombre Cliente</th>
+                    <th>Cabaña</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de fin</th>
+                    <th>Fecha de registro</th>
+                    <th>Servicios extra</th>
+                    <th>Valor total</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  // Consultamos todas las reservas con el nombre del cliente y la cabaña
+                  $sql = "SELECT 
+                            r.cod_reserva, 
+                            CONCAT(u.nombre, ' ', u.apellido) AS cliente, 
+                            c.nombre AS cabana,
+                            r.fecha_inicio,
+                            r.fecha_fin,
+                            r.fecha_registro,
+                            r.servicios_extra,
+                            r.valor_total
+                          FROM reservas r
+                          LEFT JOIN usuarios u ON r.cod_cliente = u.cod_cliente
+                          LEFT JOIN cabanas c ON r.cod_cabana = c.cod_cabana
+                          ORDER BY r.cod_reserva DESC";
+                  
+                  $result = mysqli_query($conn, $sql);
 
-					<div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            
-                        </div>
-                        <div class="panel-body">
-                            <div class="panel-group" id="accordion">
-							
-							<div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-											<button class="btn btn-default" type="button">
-												Nueva reserva de habitaciones
-  <span class="badge"><?php echo $c ; ?></span>
-											</button>
-											</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
-                                        <div class="panel-body">
-                                           <div class="panel panel-default">
-                        
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Email</th>
-                                            <th>Pais</th>
-											<th>Habitacion</th>
-											<th>Lecho</th>
-											<th>Comida</th>
-											<th>Registrarse</th>
-											<th>Revisa</th>
-											<th>estado</th>
-											<th>Más</th>
-											
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-									<?php
-									$tsql = "select * from reservas";
-									$tre = mysqli_query($conn,$tsql);
-									while($trow=mysqli_fetch_array($tre) )
-									{	
-										$co =$trow['stat']; 
-										if($co=="Not Conform")
-										{
-											echo"<tr>
-												<th>".$trow['id']."</th>
-												<th>".$trow['FName']." ".$trow['LName']."</th>
-												<th>".$trow['Email']."</th>
-												<th>".$trow['Country']."</th>
-												<th>".$trow['TRoom']."</th>
-												<th>".$trow['Bed']."</th>
-												<th>".$trow['Meal']."</th>
-												<th>".$trow['cin']."</th>
-												<th>".$trow['cout']."</th>
-												<th>".$trow['stat']."</th>
-												
-												<th><a href='reservas.php?rid=".$trow['id']." ' class='btn btn-primary'>Action</a></th>
-												</tr>";
-										}	
-									
-									}
-									?>
-                                        
-                                    </tbody>
-                                </table>
-								
-                            </div>
-                        </div>
-                    </div>
-                      <!-- End  Basic Table  --> 
-                                        </div>
-                                    </div>
-                                </div>
-								<?php
-								
-								$rsql = "SELECT * FROM `reservas`";
-								$rre = mysqli_query($conn,$rsql);
-								$r =0;
-								while($row=mysqli_fetch_array($rre) )
-								{		
-										$br = $row['stat'];
-										if($br=="Conform")
-										{
-											$r = $r + 1;
-											
-											
-											
-										}
-										
-								
-								}
-						
-								?>
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">
-											<button class="btn btn-primary" type="button">
-												 Cuartos reservados
- <span class="badge"><?php echo $r ; ?></span>
-											</button>
-											
-											</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
-                                        <div class="panel-body">
-										<?php
-										$msql = "SELECT * FROM `reservas`";
-										$mre = mysqli_query($conn,$msql);
-										
-										while($mrow=mysqli_fetch_array($mre) )
-										{		
-											$br = $mrow['stat'];
-											if($br=="Conform")
-											{
-												$fid = $mrow['id'];
-												 
-											echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-blue'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$mrow['FName']."</h3>
-														</div>
-														<div class='panel-footer back-footer-blue'>
-														<a href=show.php?sid=".$fid ."><button  class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
-													Show
-													</button></a>
-															".$mrow['TRoom']."
-														</div>
-													</div>	
-											</div>";
-															
-												
-					
-				
-												
-											}
-											
-									
-										}
-										?>
-                                           
-										</div>
-										
-                                    </div>
-									
-                                </div>
-                                <?php
-								
-								/*$fsql = "SELECT * FROM `contact`";
-								$fre = mysqli_query($conn,$fsql);
-								$f =0;
-								while($row=mysqli_fetch_array($fre) )
-								{
-										$f = $f + 1;
-                                        
-								}
-						*/
-								?>
-                                <div class="panel panel-danger">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">
-											<button class="btn btn-primary" type="button">
-												 Seguidores  <span class="badge"><?php echo $f ; ?></span>
-											</button>
-											</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre completo</th>
-                                            <th>Email</th>
-											<th> Siga el comienzo</th>
-                                            <th>Estado del permiso</th>
-                                            
-											
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-									<?php
-									$csql = "select * from contact";
-									$cre = mysqli_query($conn,$csql);
-									while($crow=mysqli_fetch_array($cre) )
-									{	
-										
-											echo"<tr>
-												<th>".$crow['id']."</th>
-												<th>".$crow['fullname']."</th>
-												<th>".$crow['email']." </th>
-												<th>".$crow['cdate']." </th>
-												<th>".$crow['approval']."</th>
-												</tr>";
-										
-									
-									}
-									?>
-                                        
-                                    </tbody>
-                                </table>
-								<a href="messages.php" class="btn btn-primary">Más acción
-</a>
-                            </div>
-                        </div>
-                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      echo "<tr>
+                              <td>{$row['cod_reserva']}</td>
+                              <td>{$row['cliente']}</td>
+                              <td>{$row['cabana']}</td>
+                              <td>{$row['fecha_inicio']}</td>
+                              <td>{$row['fecha_fin']}</td>
+                              <td>{$row['fecha_registro']}</td>
+                              <td>{$row['servicios_extra']}</td>
+                              <td>$" . number_format($row['valor_total'], 0, ',', '.') . "</td>
+                              <td>
+                                <a href='home.php?eliminar={$row['cod_reserva']}' 
+                                    class='btn btn-danger btn-sm' 
+                                    onclick='return confirmarEliminacion()'>
+                                    Eliminar
+                                </a>
+                              </td>
+                            </tr>";
+                    }
+                  } else {
+                    echo "<tr><td colspan='9' class='text-center'>No hay reservas registradas</td></tr>";
+                  }
+                  ?>
+                </tbody>
+              </table>
             </div>
-            
-			
-				<!-- DEOMO-->
-				<div class='panel-body'>
-                            <button class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
-                              Update 
-                            </button>
-                            <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
-                                <div class='modal-dialog'>
-                                    <div class='modal-content'>
-                                        <div class='modal-header'>
-                                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                                            <h4 class='modal-title' id='myModalLabel'>Cambiar el nombre de usuario y la contraseña
-</h4>
-                                        </div>
-										<form method='post>
-                                        <div class='modal-body'>
-                                            <div class='form-group'>
-                                            <label>Cambie el nombre de usuario
-</label>
-                                            <input name='usname' value='<?php echo $fname; ?>' class='form-control' placeholder='Enter User name'>
-											</div>
-										</div>
-										<div class='modal-body'>
-                                            <div class='form-group'>
-                                            <label>Cambia la contraseña
-</label>
-                                            <input name='pasd' value='<?php echo $ps; ?>' class='form-control' placeholder='Enter Password'>
-											</div>
-                                        </div>
-										
-                                        <div class='modal-footer'>
-                                            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
-											
-                                           <input type='submit' name='up' value='Update' class='btn btn-primary'>
-										  </form>
-										   
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-				
-				<!--DEMO END-->
-				
-										
-                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function confirmarEliminacion() {
+    return confirm("¿Estás seguro de que deseas eliminar esta reserva?");
+  }
+</script>
+
+<?php
+// --- Eliminar reserva ---
+if (isset($_GET['eliminar'])) {
+  $id = intval($_GET['eliminar']);
+  $delete = "DELETE FROM reservas WHERE cod_reserva = $id";
+  if (mysqli_query($conn, $delete)) {
+    echo "<script>
+            alert('Reserva eliminada correctamente');
+            window.location.href='home.php';
+          </script>";
+  } else {
+    echo "<script>alert('Error al eliminar la reserva');</script>";
+  }
+}
+?>
 
                 <!-- /. ROW  -->
 				
