@@ -6,7 +6,7 @@ include('db.php');
 
 <head>
 	<title>Masaya San Agustin - Glamping</title>
-	<link rel="icon" tipe="imagen/png" href="..."
+	<link rel="icon" type="image/png" href="images/cropped-logo-masaya-experience-2024-32x32.png">
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -176,7 +176,7 @@ include('db.php');
 	<div id="availability-agileits">
 		<div class="col-md-12 book-form-left-w3layouts">
 			<a href="users/login.php">
-				<h2>RESERVA EL MEJOR AMANECER
+				<h2>RESERVA TU MEJOR EXPERIENCIA
 				</h2>
 			</a>
 		</div>
@@ -195,29 +195,29 @@ include('db.php');
 					<li>
 						<div class="w3_grid_effect">
 							<span class="cbp-ig-icon w3_road"></span>
-							<h4 class="cbp-ig-title">DORMITORIOS PRINCIPALES</h4>
-							<span class="cbp-ig-category">AMANECER</span>
+							<h4 class="cbp-ig-title">CABAÑAS INCREIBLES</h4>
+							<span class="cbp-ig-category">MASAYA</span>
 						</div>
 					</li>
 					<li>
 						<div class="w3_grid_effect">
 							<span class="cbp-ig-icon w3_cube"></span>
-							<h4 class="cbp-ig-title">BALCON CON VISTA AL MAR</h4>
-							<span class="cbp-ig-category">AMANECER</span>
+							<h4 class="cbp-ig-title">BALCON CON VISTA NATURAL</h4>
+							<span class="cbp-ig-category">MASAYA</span>
 						</div>
 					</li>
 					<li>
 						<div class="w3_grid_effect">
 							<span class="cbp-ig-icon w3_users"></span>
 							<h4 class="cbp-ig-title">GRAN <br /> CAFÉ</h4>
-							<span class="cbp-ig-category">AMANECER</span>
+							<span class="cbp-ig-category">MASAYA</span>
 						</div>
 					</li>
 					<li>
 						<div class="w3_grid_effect">
 							<span class="cbp-ig-icon w3_ticket"></span>
 							<h4 class="cbp-ig-title">COBERTURA <br /> WIFI</h4>
-							<span class="cbp-ig-category">AMANECER
+							<span class="cbp-ig-category">MASAYA
 							</span>
 						</div>
 					</li>
@@ -234,9 +234,9 @@ include('db.php');
 				</h3>
 				<p class="about-para-w3ls"> Masaya San Agustín Glamping es un lugar diseñado para quienes buscan desconectar y disfrutar de la naturaleza sin renunciar al confort. Nuestras cabañas combinan lujo y armonía con el entorno natural.
 				</p>
-				<img src="images/about.jpg" class="img-responsive" alt="Hair Salon">
+				<img src="images/Maloka.jpg.jpeg" class="img-responsive" alt="Hair Salon">
 				<div class="w3l-slider-img">
-					<img src="images/a1.jpg" class="img-responsive" alt="Hair Salon">
+					<img src="images/estandar-4.jpg.jpeg" class="img-responsive2" alt="Hair Salon">
 				</div>
 				<div class="w3ls-info-about">
 					<h4>Te encantarán todas las comodidades que ofrecemos
@@ -288,112 +288,113 @@ include('db.php');
 	<br>
 	<!--//sevices-->
 	<!-- Gallery -->
-	<section class="portfolio-w3ls" id="gallery">
-		<h3 class="title-w3-agileits title-black-wthree">Nuestra galería
+<br>
+<br>
+	<h3 class="title-w3-agileits title-black-wthree">Nuestra galería
 		</h3>
+	<section class="portfolio-w3ls" id="gallery">
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g1.jpg" class="swipebox"><img src="images/g1.jpg" class="img-responsive" alt="/">
+			<a href="images/thumb13.jpg.jpeg" class="swipebox"><img src="images/thumb13.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g2.jpg" class="swipebox"><img src="images/g2.jpg" class="img-responsive" alt="/">
+			<a href="images/superior-3.jpg.jpeg" class="swipebox"><img src="images/superior-3.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g3.jpg" class="swipebox"><img src="images/g3.jpg" class="img-responsive" alt="/">
+			<a href="images/superior-2-1.jpg.jpeg" class="swipebox"><img src="images/superior-2-1.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
-						E</h4>
+					<h4>MASAYA</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g4.jpg" class="swipebox"><img src="images/g4.jpg" class="img-responsive" alt="/">
+			<a href="images/Suite-5-2.jpg.jpeg" class="swipebox"><img src="images/Suite-5-2.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g5.jpg" class="swipebox"><img src="images/g5.jpg" class="img-responsive" alt="/">
+			<a href="images/Suite-4-1.jpg.jpeg" class="swipebox"><img src="images/Suite-4-1.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g6.jpg" class="swipebox"><img src="images/g6.jpg" class="img-responsive" alt="/">
+			<a href="images/Suite-2.jpg.jpeg" class="swipebox"><img src="images/Suite-2.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g6.jpg" class="swipebox"><img src="images/g7.jpg" class="img-responsive" alt="/">
+			<a href="images/salsa_champeta-scaled.jpeg" class="swipebox"><img src="images/salsa_champeta-scaled.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g6.jpg" class="swipebox"><img src="images/g8.jpg" class="img-responsive" alt="/">
+			<a href="images/Mirador.jpg.jpeg" class="swipebox"><img src="images/Mirador.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g9.jpg" class="swipebox"><img src="images/g9.jpg" class="img-responsive" alt="/">
+			<a href="images/Masaya-San-Agustin_Maloca.jpg.jpeg" class="swipebox"><img src="images/Masaya-San-Agustin_Maloca.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g10.jpg" class="swipebox"><img src="images/g10.jpg" class="img-responsive" alt="/">
+			<a href="images/Masaya-by-Night.jpg.jpeg" class="swipebox"><img src="images/Masaya-by-Night.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g4.jpg" class="swipebox"><img src="images/g4.jpg" class="img-responsive" alt="/">
+			<a href="images/Maloka.jpg.jpeg" class="swipebox"><img src="images/Maloka.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
 			</a>
 		</div>
 		<div class="col-md-3 gallery-grid gallery1">
-			<a href="images/g2.jpg" class="swipebox"><img src="images/g2.jpg" class="img-responsive" alt="/">
+			<a href="images/habitaciones-1.jpg.jpeg" class="swipebox"><img src="images/habitaciones-1.jpg.jpeg" class="img-responsive" alt="/">
 				<div class="textbox">
-					<h4>AMANECER
+					<h4>MASAYA
 					</h4>
 					<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 				</div>
@@ -411,8 +412,8 @@ include('db.php');
 				<div class="col-md-3 price-grid">
 					<div class="price-block agile">
 						<div class="price-gd-top">
-							<img src="images/r1.jpg" alt=" " class="img-responsive" />
-							<h4>Habitación de lujo
+							<img src="images/430817085.jpeg" alt=" " class="img-responsive" />
+							<h4>Suite Ejecutiva
 							</h4>
 						</div>
 						<div class="price-gd-bottom">
@@ -427,7 +428,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>$</span>320</h3>
+								<h3><span>$</span>800.000</h3>
                                     <a href="users/reservar.php">Reservar ahora</a>
 								</a>
 							</div>
@@ -437,8 +438,8 @@ include('db.php');
 				<div class="col-md-3 price-grid ">
 					<div class="price-block agile">
 						<div class="price-gd-top">
-							<img src="images/r2.jpg" alt=" " class="img-responsive" />
-							<h4>Habitación de lujo
+							<img src="images/Suite-2.jpg.jpeg" alt=" " class="img-responsive" />
+							<h4>Junior Suite
 							</h4>
 						</div>
 						<div class="price-gd-bottom">
@@ -452,7 +453,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>$</span>220</h3>
+								<h3><span>$</span>724.200</h3>
                                   <a href="users/reservar.php">Reservar ahora</a>
 								</a>
 							</div>
@@ -462,8 +463,8 @@ include('db.php');
 				<div class="col-md-3 price-grid lost">
 					<div class="price-block agile">
 						<div class="price-gd-top">
-							<img src="images/r3.jpg" alt=" " class="img-responsive" />
-							<h4>Casa de huespedes</h4>
+							<img src="images/Familiar1.jpg.jpeg" alt=" " class="img-responsive" />
+							<h4>Habitación Familiar</h4>
 						</div>
 						<div class="price-gd-bottom">
 							<div class="price-list">
@@ -471,12 +472,12 @@ include('db.php');
 									<li><i class="fa fa-star" aria-hidden="true"></i></li>
 									<li><i class="fa fa-star" aria-hidden="true"></i></li>
 									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
 									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>$</span>180</h3>
+								<h3><span>$</span>533.620</h3>
                                   <a href="users/reservar.php">Reservar ahora</a>
 							</div>
 						</div>
@@ -485,21 +486,21 @@ include('db.php');
 				<div class="col-md-3 price-grid wthree lost">
 					<div class="price-block agile">
 						<div class="price-gd-top ">
-							<img src="images/r4.jpg" alt=" " class="img-responsive" />
-							<h4>Habitación Indiv.</h4>
+							<img src="images/superior-3.jpg.jpeg" alt=" " class="img-responsive" />
+							<h4>HHabitación Estándar</h4>
 						</div>
 						<div class="price-gd-bottom">
 							<div class="price-list">
 								<ul>
 									<li><i class="fa fa-star" aria-hidden="true"></i></li>
 									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
 									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>$</span> 150</h3>
+								<h3><span>$</span>457.000</h3>
                                   <a href="users/reservar.php">Reservar ahora</a>
 								</a>
 							</div>
@@ -523,9 +524,9 @@ include('db.php');
 					<ul class="slides">
 						<li>
 							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
+								<img src="images/Masaya-San-Agustin_Maloca.jpg.jpeg" alt=" " class="img-responsive" />
 								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c1.jpg" alt=" " class="img-responsive" />
+									<img src="images/539151418_18523812016032804_4060176253006855827_n.jpg" alt=" " class="img-responsive" />
 								</div>
 							</div>
 							<div class="w3layouts_work_grid_right">
@@ -538,17 +539,17 @@ include('db.php');
 									Vale la pena volver
 
 								</h4>
-								<p>es fascinantes y divertido pase momentos agradables de mis vaciones en este hotel. </p>
-								<h5>Julia Rose</h5>
-								<p>Alemania</p>
+								<p>es fascinantes y divertido pase momentos agradables de mis vaciones en este glamping.</p>
+								<h5>Julia Lopez</h5>
+								<p>Medellín</p>
 							</div>
 							<div class="clearfix"> </div>
 						</li>
 						<li>
 							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
+								<img src="images/Familiar2.jpg.jpeg" alt=" " class="img-responsive" />
 								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c2.jpg" alt=" " class="img-responsive" />
+									<img src="images/491422311_17904272616158146_784270540535930039_n.jpg" alt=" " class="img-responsive" />
 								</div>
 							</div>
 							<div class="w3layouts_work_grid_right">
@@ -558,11 +559,11 @@ include('db.php');
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star-o" aria-hidden="true"></i>
-									Vale la pena volver
+									Ya quiero volver
 
 								</h4>
-								<p>es fascinantes y divertido pase momentos agradables de mis vaciones en este hotel </p>
-								<h5>Jahnatan Smith</h5>
+								<p>Pasé momentos increibles con personas muy importantes para mi, love Masaya </p>
+								<h5>Laura Rivera</h5>
 								<p>Estados Unidos
 								</p>
 							</div>
@@ -570,9 +571,9 @@ include('db.php');
 						</li>
 						<li>
 							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
+								<img src="images/Masaya-by-Night.jpg.jpeg" alt=" " class="img-responsive" />
 								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c3.jpg" alt=" " class="img-responsive" />
+									<img src="images/Web_MC_IG_3-260x300.png" alt=" " class="img-responsive" />
 								</div>
 							</div>
 							<div class="w3layouts_work_grid_right">
@@ -582,20 +583,20 @@ include('db.php');
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star-o" aria-hidden="true"></i>
-									Vale la pena volver
+									Ningun lugar como este
 
 								</h4>
-								<p>es fascinantes y divertido pase momentos agradables de mis vaciones en este hotel . </p>
-								<h5>Rosalind Cloer</h5>
-								<p>Italia</p>
+								<p>Este es un lugar maravilloso y hermoso, se los recomiendo al 100%</p>
+								<h5>Andrea Ochoa</h5>
+								<p>Bogota</p>
 							</div>
 							<div class="clearfix"> </div>
 						</li>
 						<li>
 							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
+								<img src="images/DSC5836-HDR.jpg.jpeg" alt=" " class="img-responsive" />
 								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c4.jpg" alt=" " class="img-responsive" />
+									<img src="images/experiencia1234.jpg" alt=" " class="img-responsive" />
 								</div>
 							</div>
 							<div class="w3layouts_work_grid_right">
@@ -605,11 +606,11 @@ include('db.php');
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star-o" aria-hidden="true"></i>
 									<i class="fa fa-star-o" aria-hidden="true"></i>
-									Vale la pena volver
+									Extraño allí
 								</h4>
-								<p>es fascinantes y divertido pase momentos agradables de mis vaciones en este hotel. </p>
-								<h5>Amie Bublitz</h5>
-								<p>Suiza</p>
+								<p>Hermosas vistas y espectacular comida, yo volvería siempre</p>
+								<h5>Angie Fierro</h5>
+								<p>Melgar</p>
 							</div>
 							<div class="clearfix"> </div>
 						</li>
@@ -631,71 +632,63 @@ include('db.php');
 					<form action="guardar_cliente.php" method="POST">
   <!-- Primer Nombre -->
   <div class="form-group">
-    <label for="nombre1">Primer Nombre:</label>
-    <input type="text" class="form-control" name="nombre1" id="nombre1" placeholder="Ingresa tu primer nombre" required>
+    <label for="nombre">Primer Nombre:</label>
+    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresa tu primer nombre" required>
   </div>
 
-  <!-- Segundo Nombre (opcional) -->
+  <!-- Segundo Nombre -->
   <div class="form-group">
-    <label for="nombre2">Segundo Nombre:</label>
-    <input type="text" class="form-control" name="nombre2" id="nombre2" placeholder="Ingresa tu segundo nombre (opcional)">
+    <label for="segundo_nombre">Segundo Nombre:</label>
+    <input type="text" class="form-control" name="segundo_nombre" id="segundo_nombre" placeholder="Ingresa tu segundo nombre (opcional)">
   </div>
 
   <!-- Primer Apellido -->
   <div class="form-group">
-    <label for="apellido1">Primer Apellido:</label>
-    <input type="text" class="form-control" name="apellido1" id="apellido1" placeholder="Ingresa tu primer apellido" required>
+    <label for="apellido">Primer Apellido:</label>
+    <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Ingresa tu primer apellido" required>
   </div>
 
-  <!-- Segundo Apellido (opcional) -->
+  <!-- Segundo Apellido -->
   <div class="form-group">
-    <label for="apellido2">Segundo Apellido:</label>
-    <input type="text" class="form-control" name="apellido2" id="apellido2" placeholder="Ingresa tu segundo apellido (opcional)">
+    <label for="segundo_apellido">Segundo Apellido:</label>
+    <input type="text" class="form-control" name="segundo_apellido" id="segundo_apellido" placeholder="Ingresa tu segundo apellido (opcional)">
   </div>
 
   <!-- Correo Electrónico -->
   <div class="form-group">
-    <label for="email">Correo Electrónico:</label>
-    <input type="email" class="form-control" name="email" id="email" placeholder="Ingresa tu correo" required>
+    <label for="correo">Correo Electrónico:</label>
+    <input type="email" class="form-control" name="correo" id="correo" placeholder="Ingresa tu correo" required>
   </div>
 
   <!-- Contraseña -->
   <div class="form-group">
-    <label for="password">Contraseña:</label>
-    <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa tu contraseña" required>
+    <label for="contraseña">Contraseña:</label>
+    <input type="password" class="form-control" name="contrasena" id="contraseña" placeholder="Ingresa tu contraseña" required>
   </div>
 
-  <!-- Teléfono -->
+  <!-- Celular -->
   <div class="form-group">
-    <label for="telefono">Teléfono:</label>
-    <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingresa tu número de teléfono" required>
+    <label for="celular">Celular:</label>
+    <input type="text" class="form-control" name="celular" id="celular" placeholder="Ingresa tu número de celular" required>
+  </div>
+
+  <!-- Dirección -->
+  <div class="form-group">
+    <label for="direccion">Dirección:</label>
+    <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Ingresa tu dirección">
   </div>
 
   <!-- Botón de envío -->
   <input type="submit" class="btn btn-primary" value="Registrar">
 </form>
-					<?php
-					if (isset($_POST['sub'])) {
-						$name = $_POST['name'];
-						$phone = $_POST['phone'];
-						$email = $_POST['email'];
-						$approval = "Not Allowed";
-						$sql = "INSERT INTO `clientes`(`nombre1`, `nombre2`, `apellido1`,`apellido2`,`email`,`password`,`telefono`) 
-						VALUES ('$nombre1','$nombre2','$apellido1','$apellido2','$email','$password','$telefono')";
-
-
-						if (mysqli_query($conn, $sql))
-							echo "OK";
-					}
-					?>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile1" data-aos="flip-right">
 				<h4>Conectate con nosotros
 				</h4>
-				<p class="contact-agile1"><strong>Teléfono :</strong>+54 9 11 7601-1408</p>
-				<p class="contact-agile1"><strong>Email :</strong> <a href="mailto:info@facturacionweb.site">info@facturacionweb.site</a></p>
-				<p class="contact-agile1"><strong>Dirección :</strong> Buenos Aires, Argentina</p>
+				<p class="contact-agile1"><strong>Teléfono :</strong>+57 312 4187927</p>
+				<p class="contact-agile1"><strong>Dirección :</strong> Vereda El Tablon, km 1 Vía del, Via Estrecho del Magdalena, San Agustín, Huila</p>
+				<p class="contact-agile1"><strong>Correo :</strong>SANAGUSTIN@MASAYA-EXPERIENCE.COM</p>
 
 				<div class="social-bnr-agileits footer-icons-agileinfo">
 					<ul class="social-icons3">
@@ -705,14 +698,14 @@ include('db.php');
 
 					</ul>
 				</div>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62879.681806229746!2d-84.14836462783931!3d9.935612431138155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e49edef4b3eb%3A0xc8956f3f7bdc3793!2sRadisson+San+Jose-Costa+Rica+Hotel+moderno+con+2%E2%80%A6!5e0!3m2!1ses!2ssv!4v1517008417899"></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.6343827453697!2d-76.2683301!3d1.895837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e25707f01ae31c7%3A0xccd64e01b1e32fe2!2sCeiba%20by%20Masaya%20Collection!5e0!3m2!1ses!2sco!4v1761536808272!5m2!1ses!2sco"></iframe>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</section>
 	<!-- /contact -->
 	<div class="copy">
-		<p>© 2024 <a href="index.php">KILBER MARCANO</a> </p>
+		<p>© 2025 <a href="index.php">SANTIAGO HERNANDEZ</a> </p>
 	</div>
 	<!--/footer -->
 	<!-- js -->

@@ -33,7 +33,7 @@ $img = "../images/r{$img_num}.jpg";
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Detalle de Cabaña - New Dawn Glamping</title>
+    <title>Detalle de Cabaña - Masaya</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/font-awesome.css">
@@ -59,7 +59,7 @@ $img = "../images/r{$img_num}.jpg";
 
 <nav style="background:#0f2453; padding:12px 0;">
     <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
-        <a href="../index.php" style="color:#fff; font-weight:700; font-size:20px; text-decoration:none;">NEW <span style="color:#ffd700;">DAWN</span></a>
+        <a href="../index.php" style="color:#fff; font-weight:700; font-size:20px; text-decoration:none;">MASAYA <span style="color:#ffd700;">GLAMING</span></a>
         <div>
             <a href="../index.php" style="color:#fff; margin-right:12px; text-decoration:none;">Inicio</a>
             <a href="reservar.php" style="color:#fff; margin-right:12px; text-decoration:none;">Cabañas</a>

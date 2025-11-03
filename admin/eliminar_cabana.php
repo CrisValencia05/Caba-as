@@ -2,7 +2,19 @@
 include('../db.php');
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
+
+    // Obtener las fotos actuales
+    $result = mysqli_query($conn, "SELECT foto1, foto2, foto3, foto4 FROM Cabanas WHERE cod_cabana='$id'");
+    if ($row = mysqli_fetch_assoc($result)) {
+        foreach (['foto1','foto2','foto3','foto4'] as $foto) {
+            if(!empty($row[$foto]) && file_exists($row[$foto])){
+                unlink($row[$foto]); // eliminar archivo
+            }
+        }
+    }
+
+    // Eliminar registro
     $sql = "DELETE FROM Cabanas WHERE cod_cabana = '$id'";
 
     if (mysqli_query($conn, $sql)) {

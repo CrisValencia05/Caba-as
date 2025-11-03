@@ -5,7 +5,7 @@ include('../db.php'); // Conexión con la base de datos
 // 🔹 Si hay una sesión activa, verificar que siga siendo válida en la base de datos
 if (isset($_SESSION['cod_cliente'])) {
     $id = intval($_SESSION['cod_cliente']);
-    $stmt = $conn->prepare("SELECT cod_cliente FROM Usuarios WHERE cod_cliente = ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT cod_cliente FROM usuarios WHERE cod_cliente = ? LIMIT 1");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $res = $stmt->get_result();

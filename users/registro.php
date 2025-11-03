@@ -2,7 +2,6 @@
 include('../db.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Escapar los datos para evitar inyecciones SQL
     $nombre           = mysqli_real_escape_string($conn, $_POST['nombre']);
     $segundo_nombre   = mysqli_real_escape_string($conn, $_POST['segundo_nombre']);
     $apellido         = mysqli_real_escape_string($conn, $_POST['apellido']);
@@ -10,10 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo           = mysqli_real_escape_string($conn, $_POST['correo']);
     $celular          = mysqli_real_escape_string($conn, $_POST['celular']);
     $direccion        = mysqli_real_escape_string($conn, $_POST['direccion']);
-    $contrasena       = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // Encriptar contraseña
+    $contrasena       = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
 
-    // Insertar datos en la tabla Usuarios
-    $sql = "INSERT INTO Usuarios (nombre, segundo_nombre, apellido, segundo_apellido, celular, direccion, correo, contrasena, fecha_registro)
+    $sql = "INSERT INTO usuarios (nombre, segundo_nombre, apellido, segundo_apellido, celular, direccion, correo, contraseña, fecha_registro)
             VALUES ('$nombre', '$segundo_nombre', '$apellido', '$segundo_apellido', '$celular', '$direccion', '$correo', '$contrasena', NOW())";
 
     if (mysqli_query($conn, $sql)) {

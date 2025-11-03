@@ -8,7 +8,7 @@ include('../db.php');
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Habitaciones y Tarifas - New Dawn Glamping</title>
+    <title>Habitaciones y Tarifas - Masaya Glamping</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -146,7 +146,7 @@ include('../db.php');
     <!-- 🔹 Barra superior -->
     <nav>
         <div class="container">
-            <a href="../index.php" class="brand">NEW <span style="color:#ffd700;">DAWN</span></a>
+            <a href="../index.php" class="brand">Masaya <span style="color:#ffd700;">Glamping</span></a>
             <div>
                 <a href="../index.php">Inicio</a>
                 <a href="../index.php#about">Acerca de</a>
@@ -191,14 +191,14 @@ include('../db.php');
 
             // Mostrar las cabañas
             foreach ($cabanas as $row):
-                $imgNum = $row['cod_cabana'] % 4 ?: 4;
-                $img = "../images/r{$imgNum}.jpg";
+    // Usar la foto asociada a la cabaña desde la base de datos
+    $img = !empty($row['foto1']) && file_exists('../'.$row['foto1']) ? '../'.$row['foto1'] : '../images/default.jpg';
 
-                if (isset($_SESSION['cod_cliente'])) {
-                    $link = "detalle_cabana.php?id=" . $row['cod_cabana'];
-                } else {
-                    $link = "login.php?redirect=" . urlencode("detalle_cabana.php?id=" . $row['cod_cabana']);
-                }
+    if (isset($_SESSION['cod_cliente'])) {
+        $link = "detalle_cabana.php?id=" . $row['cod_cabana'];
+    } else {
+        $link = "login.php?redirect=" . urlencode("detalle_cabana.php?id=" . $row['cod_cabana']);
+    }
             ?>
                 <div class="card-cabana">
                     <img src="<?php echo $img; ?>" alt="<?php echo htmlspecialchars($row['nombre']); ?>">

@@ -13,6 +13,7 @@ include('../db.php');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hotel Amanecer</title>
+    <link rel="icon" type="image/png" href="../images/cropped-logo-masaya-experience-2024-32x32.png">
     <!-- Bootstrap Styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles -->

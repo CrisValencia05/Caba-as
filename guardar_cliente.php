@@ -1,23 +1,70 @@
 <?php
-// Conectarse a la base de datos
-include("admin/db.php"); // Ajusta esta ruta si tu archivo db.php está en otra carpeta
+// Mostrar errores mientras depuramos (quitar en producción)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Capturar los datos del formulario
-$nombre1   = $_POST['nombre1'];
-$nombre2   = $_POST['nombre2'];
-$apellido1 = $_POST['apellido1'];
-$apellido2 = $_POST['apellido2'];
-$email     = $_POST['email'];
-$password  = $_POST['password'];
-$telefono  = $_POST['telefono'];
+include('db.php'); // tu conexión a la base de datos (misma carpeta)
 
-// Insertar en la base de datos
-$sql = "INSERT INTO clientes (nombre1, nombre2, apellido1, apellido2, email, password, telefono)
-        VALUES ('$nombre1', '$nombre2', '$apellido1', '$apellido2', '$email', '$password', '$telefono')";
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo "Acceso no permitido.";
+    exit;
+}
 
-if (mysqli_query($con, $sql)) {
-    echo "Registro exitoso.";
+// Obtener datos del formulario
+$nombre           = mysqli_real_escape_string($conn, $_POST['nombre'] ?? '');
+$segundo_nombre   = mysqli_real_escape_string($conn, $_POST['segundo_nombre'] ?? '');
+$apellido         = mysqli_real_escape_string($conn, $_POST['apellido'] ?? '');
+$segundo_apellido = mysqli_real_escape_string($conn, $_POST['segundo_apellido'] ?? '');
+$correo           = mysqli_real_escape_string($conn, $_POST['correo'] ?? '');
+$celular          = mysqli_real_escape_string($conn, $_POST['celular'] ?? '');
+$direccion        = mysqli_real_escape_string($conn, $_POST['direccion'] ?? '');
+$contrasena_raw   = $_POST['contrasena'] ?? ''; // debe coincidir con name="contrasena" en el form
+
+// Validar campos obligatorios
+if (empty($nombre) || empty($apellido) || empty($correo) || empty($contrasena_raw)) {
+    echo "<script>alert('Por favor completa los campos obligatorios.'); window.history.back();</script>";
+    exit;
+}
+
+// Encriptar la contraseña
+$password_hash = password_hash($contrasena_raw, PASSWORD_BCRYPT);
+
+// Nombre de la tabla
+$table = 'usuarios';
+
+// Consulta SQL con prepared statement
+$sql = "INSERT INTO `$table` 
+(`nombre`, `segundo_nombre`, `apellido`, `segundo_apellido`, `celular`, `direccion`, `correo`, `contraseña`, `fecha_registro`)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+
+$stmt = mysqli_prepare($conn, $sql);
+if (!$stmt) {
+    echo "Error al preparar la consulta: " . mysqli_error($conn);
+    exit;
+}
+
+// Vincular parámetros
+mysqli_stmt_bind_param($stmt, 'ssssssss',
+    $nombre,
+    $segundo_nombre,
+    $apellido,
+    $segundo_apellido,
+    $celular,
+    $direccion,
+    $correo,
+    $password_hash
+);
+
+// Ejecutar e identificar errores específicos
+if (mysqli_stmt_execute($stmt)) {
+    echo "<script>alert('✅ Registro exitoso. ¡Bienvenido a Masaya!'); window.location='index.php';</script>";
+    exit;
 } else {
-    echo "Error al registrar: " . mysqli_error($con);
+    if (mysqli_errno($conn) == 1062) {
+        echo "<script>alert('❌ Este correo ya está registrado. Intenta con otro.'); window.history.back();</script>";
+    } else {
+        echo "<script>alert('⚠️ Error al registrar: " . mysqli_stmt_error($stmt) . "'); window.history.back();</script>";
+    }
+    exit;
 }
 ?>
