@@ -5,6 +5,52 @@ if(!isset($_SESSION["user"])) {
     exit();
 }
 include('../db.php');
+
+// PROCESAR EDICIÓN
+if(isset($_POST['guardar_edicion'])) {
+    $id = intval($_POST['id']);
+    $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
+    $capacidad = intval($_POST['capacidad']);
+    $precio = floatval($_POST['precio_noche']);
+    $caracteristicas = mysqli_real_escape_string($conn, $_POST['caracteristicas']);
+    $estado = mysqli_real_escape_string($conn, $_POST['estado']);
+    
+    // Manejar nueva foto si se subió
+    if(isset($_FILES['foto_editar']) && $_FILES['foto_editar']['error'] === 0) {
+        // Leer el archivo y convertirlo a binario
+        $foto = mysqli_real_escape_string($conn, file_get_contents($_FILES['foto_editar']['tmp_name']));
+        $sql = "UPDATE Cabanas SET
+                    nombre='$nombre',
+                    capacidad='$capacidad',
+                    precio_noche='$precio',
+                    caracteristicas='$caracteristicas',
+                    estado='$estado',
+                    foto='$foto'
+                WHERE cod_cabana='$id'";
+    } else {
+        // No cambiar la foto, mantener la actual
+        $sql = "UPDATE Cabanas SET
+                    nombre='$nombre',
+                    capacidad='$capacidad',
+                    precio_noche='$precio',
+                    caracteristicas='$caracteristicas',
+                    estado='$estado'
+                WHERE cod_cabana='$id'";
+    }
+
+    if(mysqli_query($conn, $sql)) {
+        echo "<script>alert('✅ Cabaña actualizada correctamente'); window.location.href='room.php';</script>";
+    } else {
+        echo "<script>alert('❌ Error al actualizar: ".mysqli_error($conn)."');</script>";
+    }
+}
+
+// ELIMINAR CABAÑA
+if(isset($_GET['eliminar'])) {
+    $id = $_GET['eliminar'];
+    mysqli_query($conn, "DELETE FROM Cabanas WHERE cod_cabana='$id'");
+    echo "<script>alert('Cabaña eliminada'); window.location='room.php';</script>";
+}
 ?> 
 
 <!DOCTYPE html>
@@ -12,14 +58,13 @@ include('../db.php');
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HOTEL Amanecer - Cabañas</title>
+<title>Administrador - Cabañas</title>
 <link rel="icon" type="image/png" href="../images/cropped-logo-masaya-experience-2024-32x32.png">
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
 <link href="assets/css/custom-styles.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 <style>
-/* Estilos para las tarjetas */
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -138,8 +183,8 @@ include('../db.php');
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Fotos (máx 4):</label>
-                                    <input type="file" name="fotos[]" class="form-control" accept="image/*" multiple required>
+                                    <label>Foto:</label>
+                                    <input type="file" name="foto" class="form-control" accept="image/*" required>
                                 </div>
                                 <input type="submit" name="agregar" value="Agregar Cabaña" class="btn btn-primary">
                             </form>
@@ -152,38 +197,24 @@ include('../db.php');
                                 $caracteristicas = $_POST['caracteristicas'];
                                 $precio = $_POST['precio_noche'];
                                 $estado = $_POST['estado'];
+                                
+                                // Leer la imagen y convertir a binario
+                                $foto = mysqli_real_escape_string($conn, file_get_contents($_FILES['foto']['tmp_name']));
 
-                                // Manejar fotos
-                                $fotos = ['foto1'=>null,'foto2'=>null,'foto3'=>null,'foto4'=>null];
-                                if(isset($_FILES['fotos'])) {
-                                    $uploadDir = '../images/'; // esta es la carpeta real donde se guardan
-                                    $relativeDir = '../images/';  // esta es la ruta que se guardará en la BD
-                                    foreach($_FILES['fotos']['tmp_name'] as $key => $tmpName){
-                                        foreach($_FILES['fotos']['tmp_name'] as $key => $tmpName){
-                                            if($_FILES['fotos']['error'][$key] === 0 && $key < 4){
-                                                $fileName = uniqid() . '_' . basename($_FILES['fotos']['name'][$key]);
-                                                move_uploaded_file($tmpName, $uploadDir . $fileName);
-                                                $fotos['foto'.($key+1)] = $relativeDir . $fileName;
-                                             }
-                                        }
-                                    }
-                                }
-
-                                $sql = "INSERT INTO Cabanas (cod_glamping, nombre, capacidad, caracteristicas, precio_noche, estado, foto1, foto2, foto3, foto4)
-                                        VALUES ('$cod_glamping', '$nombre', '$capacidad', '$caracteristicas', '$precio', '$estado',
-                                        '{$fotos['foto1']}', '{$fotos['foto2']}', '{$fotos['foto3']}', '{$fotos['foto4']}')";
+                                $sql = "INSERT INTO Cabanas (cod_glamping, nombre, capacidad, caracteristicas, precio_noche, estado, foto)
+                                        VALUES ('$cod_glamping', '$nombre', '$capacidad', '$caracteristicas', '$precio', '$estado', '$foto')";
 
                                 if(mysqli_query($conn, $sql)) {
                                     echo "<script>alert('Cabaña agregada correctamente'); window.location='room.php';</script>";
                                 } else {
-                                    echo "<script>alert('Error al agregar la cabaña');</script>";
+                                    echo "<script>alert('Error al agregar la cabaña: ".mysqli_error($conn)."');</script>";
                                 }
                             }
                             ?>
                         </div>
                     </div>
                 </div>
-            </div> <!-- row -->
+            </div>
 
             <!-- TARJETAS DE CABAÑAS -->
             <div class="row">
@@ -200,13 +231,13 @@ include('../db.php');
 
                         if(mysqli_num_rows($res) > 0) {
                             while($row = mysqli_fetch_assoc($res)) {
-                                $imgPath = '../' . $row['foto1']; // sube un nivel desde /admin/
-                                    if (!file_exists($imgPath)) {
-                                        $imgPath = '../images/default.jpg';
-                                    }
-                                echo"
+                                // Mostrar imagen directamente desde la BD
+                                $imagenData = $row['foto'];
+                                $imagenSrc = "data:image/jpeg;base64," . base64_encode($imagenData);
+
+                                echo "
                                 <div class='card-cabana'>
-                                    <img src='{images/}' alt='{$row['foto1']}'>
+                                    <img src='$imagenSrc' alt='{$row['nombre']}'>
                                     <div class='card-body'>
                                         <h4>{$row['nombre']}</h4>
                                         <p><strong>Glamping:</strong> {$row['glamping']}</p>
@@ -236,21 +267,22 @@ include('../db.php');
                 </div>
             </div>
 
-        </div> <!-- page-inner -->
-    </div> <!-- page-wrapper -->
-</div> <!-- wrapper -->
+        </div>
+    </div>
+</div>
 
 <!-- MODAL EDITAR CABAÑA -->
 <div class="modal fade" id="modalEditarCabana" tabindex="-1" role="dialog" aria-labelledby="editarCabanaLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form method="POST" action="editar_cabana.php" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title" id="editarCabanaLabel">Editar Cabaña</h4>
         </div>
         <div class="modal-body">
           <input type="hidden" name="id" id="edit-id">
+          
           <div class="form-group">
             <label>Nombre:</label>
             <input type="text" name="nombre" id="edit-nombre" class="form-control" required>
@@ -276,12 +308,13 @@ include('../db.php');
             </select>
           </div>
           <div class="form-group">
-            <label>Fotos (puedes reemplazar):</label>
-            <input type="file" name="fotos[]" class="form-control" accept="image/*" multiple>
+            <label>Nueva Foto (opcional):</label>
+            <input type="file" name="foto_editar" class="form-control" accept="image/*">
+            <small class="text-muted">Dejar vacío para mantener la foto actual</small>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" name="guardar" class="btn btn-success">Guardar cambios</button>
+          <button type="submit" name="guardar_edicion" class="btn btn-success">Guardar cambios</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>
       </form>
@@ -314,14 +347,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
-<?php
-// ELIMINAR CABAÑA
-if(isset($_GET['eliminar'])) {
-    $id = $_GET['eliminar'];
-    mysqli_query($conn, "DELETE FROM Cabanas WHERE cod_cabana='$id'");
-    echo "<script>alert('Cabaña eliminada'); window.location='room.php';</script>";
-}
-?>
 </body>
 </html>
