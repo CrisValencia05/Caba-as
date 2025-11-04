@@ -1,34 +1,51 @@
-# SISTEMA DE RESERVA DE HOTEL CON PANEL ADMIN - PHP y MYSQL
+# 🏕️ Masaya Glamping - Sistema de Reservas
 
-Sistema para reserva de hotel desarrollado con PHP y MySQL, totalmente online, este sitio web de sistema de gestión hotelera hará que la gestión de reservas sea mas fácil para tus clientes o visitantes
+Sistema web completo para la gestión de reservas de cabañas en Masaya Glamping.
 
-Posee muchas funciones disponibles, como análisis en profundidad, soporte multilingüe, salas y administrador de precios y muchas más.
+## 🚀 Características
 
-# Home - Iniciar Sesión
+### Para Usuarios
+- ✨ Registro y autenticación de usuarios
+- 🗺️ Mapa interactivo de cabañas
+- 📅 Sistema de reservas con validación de fechas
+- 👤 Panel de usuario para ver reservas
+- 💳 Cálculo automático de precios
 
-![Home](https://github.com/ingkilber/Sistema-Hotel-Con-Panel-Admin-PHP/blob/main/images/Kilber-Marcano.png)
+### Para Administradores
+- 👨‍💼 Panel de administración completo
+- 🏠 Gestión de cabañas (agregar, editar, eliminar)
+- 📊 Gestión de reservas (confirmar, cancelar, eliminar)
+- 👥 Gestión de usuarios y empleados
+- 🖼️ Subida y gestión de imágenes
 
-# Panel de Admistración
+## 🛠️ Tecnologías Utilizadas
 
-![dashboard](https://github.com/ingkilber/Sistema-Hotel-Con-Panel-Admin-PHP/blob/main/images/Administrator.png)
+- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap
+- **Backend**: PHP, MySQL
+- **Base de Datos**: MySQL con stored procedures
+- **Seguridad**: Prepared statements, validación de sesiones
 
+## 📦 Instalación
 
-## 🚀 Tecnología
+1. Clonar el repositorio
+2. Importar la base de datos (`database.sql`)
+3. Configurar conexión en `db.php`
+4. Configurar servidor web (Apache/Nginx)
 
-- PHP
-- MYSQL
-- CSS (Bootstrap)
+## 🗃️ Estructura de la Base de Datos
 
+- `usuarios` - Registro de clientes
+- `empleados` - Personal administrativo
+- `cabanas` - Información de cabañas
+- `reservas` - Sistema de reservaciones
+- `glamping` - Configuración del establecimiento
 
-## ✋🏻 Requisitos previos
+## 👤 Credenciales de Prueba
 
-- [XAMPP](https://www.apachefriends.org/es/index.html)
-- [VS Code](https://code.visualstudio.com/)
+**Administrador:**
+- Usuario: admin
+- Contraseña: [definida en la base de datos]
 
-## 🔥 Instalación en windows (servidor local)
+## 📄 Licencia
 
-1. Clonar o descargar el repositorio;
-2. Crear BD e importar;
-3. Configurar los datos de conexión «db.php»;
-4. Datos de acceso por defecto al panel de administración: 
-usuario: admin y contraseña: admin;
+Este proyecto es para uso educativo y demostrativo.
